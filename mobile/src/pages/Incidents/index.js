@@ -31,7 +31,10 @@ export default function Incidents() {
         setLoading(true);
 
         const response = await api.get('incidents', {
-            params: { page }
+            params: { page },
+            headers: {
+                authorization: '6b93eddd'
+            }
         });
 
         setIncidents([... incidents, ... response.data]);
@@ -54,7 +57,7 @@ export default function Incidents() {
                 </Text>
             </View>
 
-            <Text style={styles.title}>Bem-vindo!</Text>
+            <Text style={styles.title}>Bem-vindo!!!</Text>
             <Text style={styles.description}>Escolha um dos casos abaixo e salve o dia.</Text>
             <FlatList
                 data={incidents}
